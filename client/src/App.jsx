@@ -1,14 +1,28 @@
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Reserva from "./pages/Reserva";
+import Sobre from "./pages/Sobre";
+
 function App() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <h1 className="text-3xl font-bold mb-6">
-        Quadra App
-      </h1>
+    <>
+      {/* MENU SUPERIOR SIMPLES */}
+      <nav className="p-4 bg-gray-800 flex justify-between items-center">
+        <span className="font-bold text-xl">Quadra App</span>
 
-      <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold">
-        Ver Horários Disponíveis
-      </button>
-    </div>
+        <div className="flex gap-4">
+          <Link to="/">Home</Link>
+          <Link to="/reserva">Reservar</Link>
+          <Link to="/sobre">Sobre</Link>
+        </div>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/reserva" element={<Reserva />} />
+        <Route path="/sobre" element={<Sobre />} />
+      </Routes>
+    </>
   );
 }
 
